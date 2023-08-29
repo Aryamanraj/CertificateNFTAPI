@@ -6,7 +6,7 @@ const contractAddress = config.contractAddress; // Replace with the deployed con
 const privateKey = config.privateKey; // Replace with the private key of your Ethereum wallet
 const infuraProjectId = config.infuraProjectId; // Replace with your Infura project ID
 const infuraAPISecret = config.infuraAPISecret;
-const provider = new InfuraProvider("goerli", infuraProjectId, infuraAPISecret);
+const provider = new InfuraProvider("sepolia", infuraProjectId, infuraAPISecret);
 const signer = new ethers.Wallet(privateKey, provider);
 const contract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -60,4 +60,4 @@ async function getCertificateDetails(tokenId) {
 // Example usage:
 //mintCertificate("John Doe", "Blockchain 101", '1693284876', "University of Ethereum", 1693286876);
 //verifyCertificate("5693670871597439198790585942051269116720439005392600222032250079944660282778");
-getCertificateDetails('92592981804217749365986265951236295875941963117701860651082512567284226053092');
+//getCertificateDetails('59086137610636082330601809658694262394661790211504494796695067303463716384062');

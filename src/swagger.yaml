@@ -1,0 +1,146 @@
+openapi: 3.0.0
+info:
+  title: Certificate NFT API
+  version: 1.0.0
+  description: An API to handle NFT certificates.
+  contact:
+    name: enigma1
+    email: [Your Email Here]
+servers:
+  - url: http://localhost:3000/api
+    description: Local development server
+
+paths:
+  /mintCertificate:
+    post:
+      summary: Mint a new certificate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the recipient.
+                course:
+                  type: string
+                  description: Course name.
+                date:
+                  type: string
+                  description: Date of issue.
+                issuer:
+                  type: string
+                  description: Issuer of the certificate.
+                validUntilDate:
+                  type: string
+                  description: Validity date of the certificate.
+      responses:
+        '200':
+          description: Certificate minted successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  tokenId:
+                    type: string
+        '500':
+          description: Error occurred.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+
+  /verifyCertificate/{tokenId}:
+    get:
+      summary: Verify a certificate
+      parameters:
+        - name: tokenId
+          in: path
+          required: true
+          description: Token ID of the certificate.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Certificate verification result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  isValid:
+                    type: boolean
+        '500':
+          description: Error occurred.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+
+  /getCertificateDetails/{tokenId}:
+    get:
+      summary: Get details of a certificate
+      parameters:
+        - name: tokenId
+          in: path
+          required: true
+          description: Token ID of the certificate.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Certificate details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  name:
+                    type: string
+                  course:
+                    type: string
+                  date:
+                    type: string
+                  issuer:
+                    type: string
+        '500':
+          description: Error occurred.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+
+security:
+  - ApiKeyAuth: []
+

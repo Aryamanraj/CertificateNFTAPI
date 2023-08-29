@@ -7,7 +7,7 @@ info:
     name: enigma1
     email: [Your Email Here]
 servers:
-  - url: http://localhost:3000/api
+  - url: http://localhost:5223/api
     description: Local development server
 
 paths:

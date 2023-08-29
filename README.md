@@ -48,7 +48,7 @@ To start the API server, run:
 npm start
 ```
 
-The server will start on `http://localhost:3000`.
+The server will start on `http://localhost:5223`.
 
 ## API Endpoints
 

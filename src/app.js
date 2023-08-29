@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); 
+const config = require('../config')
 
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
@@ -11,7 +12,7 @@ const errorHandler = require('./api/middlewares/errorHandler');
 
 const app = express();
 app.use(cors());
-const port = 3000;
+const port = config.port;
 
 app.use(bodyParser.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

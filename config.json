@@ -1,0 +1,6 @@
+{
+    "privateKey": "YOUR_WALLET_PRIVATE_KEY",
+    "infuraProjectId": "YOUR_INFURA_PROJECT_ID",
+    "infuraAPISecret": "YOUR_INFURA_API_SECRET",
+    "contractAddress": "CONTRACT_ADDRESS"
+}
